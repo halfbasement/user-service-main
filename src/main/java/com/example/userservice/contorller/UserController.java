@@ -1,5 +1,6 @@
 package com.example.userservice.contorller;
 
+import com.example.userservice.vo.Greeting;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationEnvironmentPreparedEvent;
 import org.springframework.core.env.Environment;
@@ -15,6 +16,11 @@ public class UserController {
 
     private Environment env;
 
+
+    @Autowired
+    private Greeting greeting;
+
+    @Autowired
     public UserController(Environment env) {
         this.env = env;
     }
@@ -23,5 +29,11 @@ public class UserController {
     public String status(){
 
         return "USER-SERVICE 입니다";
+    }
+    @GetMapping("/welcome")
+    public String welcome(){
+
+        //  return env.getProperty("greeting.message");
+        return greeting.getMessage();
     }
 }
