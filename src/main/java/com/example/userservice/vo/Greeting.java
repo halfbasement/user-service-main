@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Data
-@AllArgsConstructor
+//@AllArgsConstructor
 public class Greeting {
 
     @Value("${greeting.message}")
